@@ -1,0 +1,7 @@
+{
+  "name": "campus-tareas",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {"check": "node --check public/app.js && node --check public/model.js", "test": "node --test"}
+}
