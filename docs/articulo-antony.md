@@ -9,7 +9,7 @@
 
 Entre clases, prácticas y exposiciones, las entregas pueden quedar repartidas en distintos lugares. Campus Tareas reúne los pendientes en una página: cada tarea tiene un título, un curso y un estado. El alcance es pequeño para poder explicar el recorrido completo de un dato, desde el formulario hasta su almacenamiento en la nube.
 
-La interfaz está construida con HTML, CSS y JavaScript. Cloud Firestore almacena los datos y Firebase Hosting sirve los archivos de la aplicación.
+La interfaz está construida con HTML, CSS y JavaScript. Cloud Firestore almacena los datos y GitHub Pages sirve los archivos de la aplicación.
 
 ## Cómo se organiza la información
 
@@ -27,9 +27,9 @@ Esta decisión simplifica la demostración, aunque tiene una limitación: las ta
 
 ## Del repositorio a la nube
 
-El repositorio incluye un workflow de GitHub Actions. En una solicitud de cambios se ejecutan las comprobaciones de sintaxis y las pruebas de validación. Cuando los cambios llegan a `main`, y esas comprobaciones pasan, se ejecuta la publicación en Firebase Hosting.
+El repositorio incluye un workflow de GitHub Actions. En una solicitud de cambios se ejecutan las comprobaciones de sintaxis y las pruebas de validación. Cuando los cambios llegan a `main`, y esas comprobaciones pasan, se ejecuta la publicación en GitHub Pages.
 
-La credencial de despliegue se configura como un secreto de GitHub. Las reglas de Firestore se publican por separado durante la configuración inicial.
+La publicación utiliza permisos temporales de GitHub Actions y no requiere una clave privada de Firebase. Las reglas de Firestore se publican por separado durante la configuración inicial.
 
 ## Evidencias de funcionamiento
 
@@ -41,4 +41,4 @@ Antes de publicar este artículo, agregar una captura del documento creado en Fi
 - Aplicación: PENDIENTE
 - Video público: PENDIENTE
 
-Referencias: [modelo de datos de Firestore](https://firebase.google.com/docs/firestore/data-model), [reglas de seguridad](https://firebase.google.com/docs/firestore/security/rules-conditions) e [integración con GitHub](https://firebase.google.com/docs/hosting/github-integration).
+Referencias: [modelo de datos de Firestore](https://firebase.google.com/docs/firestore/data-model), [reglas de seguridad](https://firebase.google.com/docs/firestore/security/rules-conditions) e [integración con GitHub](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).

@@ -54,9 +54,8 @@ $('task-form').addEventListener('submit', event => {
 });
 async function start() {
   try {
-    // Firebase Hosting proporciona la configuración del proyecto que aloja esta app.
-    const response = await fetch('/__/firebase/init.json');
-    if (!response.ok) throw new Error('Firebase Hosting no está configurado.');
+    const response = await fetch('./firebase-config.json');
+    if (!response.ok) throw new Error('No se encontró la configuración de Firebase.');
     const config = await response.json();
     const [appModule, authModule, firestoreModule] = await Promise.all([
       import('https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js'),
@@ -75,7 +74,7 @@ async function start() {
       $('fields').disabled = busy; render(); status('Tu espacio está conectado.');
     }, error => { console.error(error); $('fields').disabled = true; status('No se pudieron leer las tareas. Revisa la conexión y los permisos de Firestore.'); });
   } catch (error) {
-    console.error(error); status('No se pudo conectar. Revisa la configuración de Firebase Hosting, Firestore y la autenticación anónima.');
+    console.error(error); status('No se pudo conectar. Revisa la conexión, la configuración de Firebase y la autenticación anónima.');
   }
 }
 start();

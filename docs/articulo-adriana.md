@@ -7,7 +7,7 @@
 
 ## Una aplicación pequeña para mostrar el proceso completo
 
-Campus Tareas permite registrar pendientes por curso, editarlos, marcarlos como completados y eliminarlos. La aplicación utiliza JavaScript en el navegador, Cloud Firestore como base NoSQL y Firebase Hosting para su publicación.
+Campus Tareas permite registrar pendientes por curso, editarlos, marcarlos como completados y eliminarlos. La aplicación utiliza JavaScript en el navegador, Cloud Firestore como base NoSQL y GitHub Pages para su publicación.
 
 El propósito del proyecto es conectar esas piezas con un proceso repetible: que un cambio en el código pueda comprobarse y publicarse desde el repositorio.
 
@@ -21,11 +21,11 @@ Cada visitante recibe una identidad anónima. Las reglas permiten acceder única
 
 ## Qué automatiza el repositorio
 
-El workflow tiene dos trabajos. El primero comprueba la sintaxis del código y ejecuta pruebas sobre las entradas del formulario. El segundo depende del primero y publica en el canal `live` de Firebase Hosting cuando la rama es `main`.
+El workflow tiene dos trabajos. El primero comprueba la sintaxis del código y ejecuta pruebas sobre las entradas del formulario. El segundo depende del primero y publica en GitHub Pages cuando la rama es `main`.
 
 Las solicitudes de cambios ejecutan las comprobaciones, pero no publican en producción. Esto permite revisar una modificación antes de integrarla.
 
-El ID del proyecto se guarda como variable del repositorio. La credencial de despliegue se guarda como secreto. La configuración inicial también requiere habilitar la autenticación anónima, crear Firestore y publicar sus reglas.
+La configuración pública de Firebase queda en un archivo de la aplicación. El despliegue utiliza permisos temporales de GitHub Actions. La configuración inicial también requiere habilitar la autenticación anónima, crear Firestore y publicar sus reglas.
 
 ## Cómo comprobar la publicación
 
@@ -43,4 +43,4 @@ El proyecto cubre un CRUD individual y un despliegue automático. Un siguiente p
 - Aplicación: PENDIENTE
 - Video público: PENDIENTE
 
-Referencias: [Firebase Hosting y GitHub Actions](https://firebase.google.com/docs/hosting/github-integration), [Firestore](https://firebase.google.com/docs/firestore/data-model) y [reglas de acceso](https://firebase.google.com/docs/firestore/security/rules-conditions).
+Referencias: [GitHub Pages y GitHub Actions](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages), [Firestore](https://firebase.google.com/docs/firestore/data-model) y [reglas de acceso](https://firebase.google.com/docs/firestore/security/rules-conditions).

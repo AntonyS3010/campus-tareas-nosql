@@ -1,6 +1,6 @@
 # Campus Tareas
 
-Gestor de tareas académicas con JavaScript, Cloud Firestore y Firebase Hosting.
+Gestor de tareas académicas con JavaScript, Cloud Firestore y GitHub Pages.
 
 **Integrantes:** Antony Piero Solorzano Zegarra y Adriana Rafaela Laos Gonzáles.
 
@@ -23,35 +23,30 @@ Ruta: `users/{uid}/tasks/{taskId}`.
 }
 ```
 
-## Publicación inicial
+## Configuración y despliegue
 
-1. Crear un repositorio **público** en GitHub llamado `campus-tareas-nosql`. Subir el contenido de esta carpeta a la raíz, incluyendo `.github/workflows/deploy.yml`, en la rama `main`. Agregar al otro integrante como colaborador.
-2. Crear un proyecto en https://console.firebase.google.com/ con el plan Spark. Registrar una aplicación web. No activar Analytics, Storage, Functions ni App Hosting: para este proyecto se utiliza **Hosting**.
-3. En Authentication → Sign-in method, habilitar **Anónimo**.
-4. Crear la base de datos **Cloud Firestore, edición Standard, base `(default)`**, en modo producción. Elegir una ubicación disponible y registrar cuál se utilizó.
-5. En Firestore → Reglas, copiar y publicar el contenido de `firestore.rules`. No utilizar reglas abiertas. La automatización incluida publica la app; las reglas se configuran por separado en este paso.
-6. En el equipo con Node.js, instalar Firebase CLI y autorizar el proyecto:
+El proyecto de Firebase es `campus-tareas`, con Cloud Firestore Standard en `southamerica-west1` (Santiago), base `(default)` y autenticación anónima habilitada. Las reglas se publican desde la consola de Firestore utilizando `firestore.rules`.
+
+El sitio se publica en **GitHub Pages** mediante `.github/workflows/deploy.yml`. En Settings → Pages, seleccionar GitHub Actions como origen. Al subir cambios a `main` se comprueba la sintaxis, se ejecutan las pruebas y, si pasan, se publica el contenido de `public/`. Las solicitudes de cambios ejecutan las comprobaciones sin publicar.
+
+La configuración del SDK se encuentra en `public/firebase-config.json`. Son identificadores públicos de la app, no una clave privada de servicio. La protección de los documentos depende de Authentication y de las reglas de Firestore. No se utiliza el SDK Admin ni se requiere una clave de servicio en el repositorio. Para desplegar se usan los permisos temporales de GitHub Actions.
+
+Para reproducir el proyecto con otra cuenta:
+
+1. Crear un proyecto Firebase en plan Spark y registrar una app web.
+2. Crear Cloud Firestore Standard en modo producción y habilitar Authentication → Anónimo.
+3. Publicar las reglas de `firestore.rules`.
+4. Reemplazar `public/firebase-config.json` por la configuración de esa app.
+5. Crear un repositorio público, subir el código a `main` y seleccionar GitHub Actions en Settings → Pages.
+6. Revisar los trabajos `check` y `deploy` y abrir la URL que entrega el workflow.
+
+Para ejecutar la interfaz localmente:
 
 ```bash
-npm install -g firebase-tools
-firebase login
-firebase use --add
+python3 -m http.server 8000 --directory public
 ```
 
-Ejecutar los comandos desde esta carpeta; al solicitar un alias usar `default`. Esto genera `.firebaserc`, que puede subirse al repositorio porque solo identifica el proyecto.
-
-7. Configurar la integración oficial:
-
-```bash
-firebase init hosting:github
-```
-
-Seleccionar el repositorio público. Si el asistente crea archivos adicionales de workflow, conservar un solo flujo de publicación. El proyecto incluye `.github/workflows/deploy.yml`. Renombrar el secreto creado por la CLI a `FIREBASE_SERVICE_ACCOUNT`, o cambiar la referencia en ese archivo al nombre real. No pegar la clave de servicio en archivos del repositorio ni en el artículo.
-
-8. En GitHub → Settings → Secrets and variables → Actions → Variables, agregar `FIREBASE_PROJECT_ID` con el ID exacto del proyecto. Mantener la credencial de servicio como **Secret**, no como Variable.
-9. Subir los cambios a `main`. Abrir Actions y esperar que terminen los trabajos `check` y `deploy`. Abrir la URL que devuelve Firebase Hosting.
-
-La app obtiene la configuración pública desde `/__/firebase/init.json`, que sirve Firebase Hosting. Un servidor HTTP genérico no proporciona esa ruta. Para vista local conectada al mismo proyecto se puede usar `firebase emulators:start --only hosting`; los servicios de datos siguen siendo los del proyecto real. No se incluyen emuladores de Auth/Firestore.
+Abrir `http://localhost:8000`. Se conecta al proyecto real de Firestore. `firebase.json` y `.firebaserc` permiten usar Firebase CLI para mantener las reglas si se cuenta con autorización; el sitio web se aloja en GitHub Pages.
 
 ## Comprobaciones
 
@@ -82,6 +77,6 @@ El ZIP de preparación contiene el proyecto. El ZIP final solicitado por el doce
 
 - https://firebase.google.com/docs/firestore/data-model
 - https://firebase.google.com/docs/firestore/security/rules-conditions
-- https://firebase.google.com/docs/hosting/github-integration
+- https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
 - https://firebase.google.com/docs/web/alt-setup
 - https://firebase.google.com/pricing
