@@ -1,0 +1,8 @@
+Buenas noches, comparto la entrega de Campus Tareas, una aplicación con Cloud Firestore y despliegue automático.
+
+Integrantes: Antony Piero Solorzano Zegarra y Adriana Rafaela Laos Gonzáles.
+
+Artículo de Antony: https://dev.to/antonys3010/una-aplicacion-de-tareas-academicas-con-javascript-y-cloud-firestore-40nf
+Video: https://www.youtube.com/watch?v=YAXXFRYB4Rk
+Repositorio: https://github.com/AntonyS3010/campus-tareas-nosql
+Aplicación: https://antonys3010.github.io/campus-tareas-nosql/

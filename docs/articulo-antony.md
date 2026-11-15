@@ -9,9 +9,21 @@ Entre clases, prácticas y exposiciones, las entregas pueden quedar repartidas e
 
 La interfaz está construida con HTML, CSS y JavaScript. Cloud Firestore almacena los datos y GitHub Pages sirve los archivos de la aplicación.
 
+![Campus Tareas: formulario y lista conectados a Firestore](https://dev-to-uploads.s3.us-east-2.amazonaws.com/uploads/articles/laflrw9zxspqgaik1g0o.jpg)
+
 ## Cómo se organiza la información
 
 Firestore es una base de datos NoSQL orientada a documentos. En este proyecto cada tarea es un documento dentro de `users/{uid}/tasks`. Sus campos son `title`, `course`, `done` y `createdAt`.
+
+Por ejemplo, el registro agrega un documento después de validar el formulario:
+
+```javascript
+await api.addDoc(collectionRef, {
+  ...data,
+  done: false,
+  createdAt: api.serverTimestamp()
+});
+```
 
 La aplicación utiliza las operaciones `addDoc`, `updateDoc` y `deleteDoc`. Para leer las tareas registra una suscripción con `onSnapshot`, ordenada por fecha de creación. La interfaz recibe las actualizaciones sin tener que consultar manualmente después de cada operación.
 
@@ -21,13 +33,34 @@ El formulario elimina los espacios al inicio y al final y limita la longitud del
 
 Cada visitante entra mediante autenticación anónima. Las reglas comprueban que su identificador coincida con el de la ruta del documento y validan los campos permitidos. La fecha de creación se asigna desde el servidor y no puede modificarse en una actualización.
 
+La condición de propietario se expresa así:
+
+```javascript
+function owner() {
+  return request.auth != null
+    && request.auth.uid == userId;
+}
+```
+
 Esta decisión simplifica la demostración, aunque tiene una limitación: las tareas pertenecen a la sesión del navegador. No existe recuperación de cuenta si se borra esa sesión.
 
 ## Del repositorio a la nube
 
 El repositorio incluye un workflow de GitHub Actions. En una solicitud de cambios se ejecutan las comprobaciones de sintaxis y las pruebas de validación. Cuando los cambios llegan a `main`, y esas comprobaciones pasan, se ejecuta la publicación en GitHub Pages.
 
-La publicación utiliza permisos temporales de GitHub Actions y no requiere una clave privada de Firebase. Las reglas de Firestore se publican por separado durante la configuración inicial.
+El proceso se divide en `check`, `package` y `deploy`. Primero pasan las comprobaciones; después se empaqueta la carpeta `public/`; finalmente se publica ese artefacto. La publicación utiliza permisos temporales de GitHub Actions. Las reglas de Firestore se publican por separado durante la configuración inicial.
+
+```yaml
+package:
+  needs: check
+  # Empaqueta public/ mediante upload-pages-artifact.
+
+deploy:
+  needs: package
+  # Publica mediante actions/deploy-pages.
+```
+
+El [workflow completo](https://github.com/AntonyS3010/campus-tareas-nosql/blob/main/.github/workflows/deploy.yml) incluye los eventos de ejecución, las versiones de las acciones y los permisos necesarios.
 
 ## Configuración del proyecto
 
@@ -49,6 +82,6 @@ La [ejecución de despliegue](https://github.com/AntonyS3010/campus-tareas-nosql
 
 - [Repositorio público](https://github.com/AntonyS3010/campus-tareas-nosql)
 - [Aplicación publicada](https://antonys3010.github.io/campus-tareas-nosql/)
-- Video público: PENDIENTE
+- [Video público: construcción y demostración (4 minutos)](https://youtu.be/YAXXFRYB4Rk)
 
 Referencias: [modelo de datos de Firestore](https://firebase.google.com/docs/firestore/data-model), [reglas de seguridad](https://firebase.google.com/docs/firestore/security/rules-conditions) e [integración con GitHub](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).

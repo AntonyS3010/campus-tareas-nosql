@@ -41,6 +41,6 @@ El proyecto cubre un CRUD individual y un despliegue automático. Un siguiente p
 
 - [Repositorio público](https://github.com/AntonyS3010/campus-tareas-nosql)
 - [Aplicación publicada](https://antonys3010.github.io/campus-tareas-nosql/)
-- Video público: PENDIENTE
+- [Video público: construcción y demostración (4 minutos)](https://youtu.be/YAXXFRYB4Rk)
 
 Referencias: [GitHub Pages y GitHub Actions](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages), [Firestore](https://firebase.google.com/docs/firestore/data-model) y [reglas de acceso](https://firebase.google.com/docs/firestore/security/rules-conditions).

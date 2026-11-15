@@ -42,4 +42,6 @@ Las comprobaciones cubren las operaciones básicas y las condiciones de acceso e
 
 ## Video
 
-Se preparó un recorrido de 4 minutos, 1920 × 1080, con explicaciones en pantalla y capturas de la aplicación publicada. Sin narración. La publicación en una red de video aún está pendiente.
+Se preparó un recorrido de 4 minutos, 1920 × 1080, con explicaciones en pantalla y capturas de la aplicación publicada. Sin narración. Video público: https://www.youtube.com/watch?v=YAXXFRYB4Rk
+
+Artículo de Antony: https://dev.to/antonys3010/una-aplicacion-de-tareas-academicas-con-javascript-y-cloud-firestore-40nf

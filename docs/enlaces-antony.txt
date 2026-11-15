@@ -1,0 +1,23 @@
+CONSTRUCCIÓN Y DESPLIEGUE DE UNA APP CON BASE DE DATOS NoSQL
+
+Proyecto: Campus Tareas
+Presentado por: Antony Piero Solorzano Zegarra
+Integrante del equipo: Adriana Rafaela Laos Gonzáles
+
+Artículo de Antony (DEV.to):
+https://dev.to/antonys3010/una-aplicacion-de-tareas-academicas-con-javascript-y-cloud-firestore-40nf
+
+Video público (4 minutos):
+https://www.youtube.com/watch?v=YAXXFRYB4Rk
+
+Repositorio público:
+https://github.com/AntonyS3010/campus-tareas-nosql
+
+Aplicación publicada:
+https://antonys3010.github.io/campus-tareas-nosql/
+
+Ejecución del despliegue automático:
+https://github.com/AntonyS3010/campus-tareas-nosql/actions/runs/43671790256
+
+Tecnologías: HTML, CSS, JavaScript, Cloud Firestore,
+Firebase Authentication, GitHub Actions y GitHub Pages.

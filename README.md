@@ -69,11 +69,14 @@ Antes de entregar, comprobar en la app publicada:
 
 Las pruebas de interfaz y las comprobaciones de acceso ya ejecutadas se registran en [docs/verificacion.md](docs/verificacion.md).
 
-## Entrega académica
+## Publicaciones y entrega
 
-Los textos de `docs/` son versiones de trabajo que deben completarse con los enlaces y las capturas reales. Publicar un artículo en cada cuenta personal. El video puede mostrar a ambos integrantes; confirmar con el docente si además exige uno por integrante. Publicarlo con visibilidad pública y duración inferior a cinco minutos.
+- [Artículo de Antony en DEV.to](https://dev.to/antonys3010/una-aplicacion-de-tareas-academicas-con-javascript-y-cloud-firestore-40nf)
+- [Video público de 4 minutos](https://www.youtube.com/watch?v=YAXXFRYB4Rk)
+- [Aplicación publicada](https://antonys3010.github.io/campus-tareas-nosql/)
+- [Enlaces para la entrega de Antony](docs/enlaces-antony.txt)
 
-El ZIP de preparación contiene el proyecto. El ZIP final solicitado por el docente debe prepararse después de publicar, con los enlaces reales a ambos artículos, el video, el repositorio y la app. No entregar un archivo con campos pendientes.
+El artículo de Adriana está preparado en `docs/articulo-adriana.md` para su publicación desde su propia cuenta. El mensaje para Telegram se encuentra en `docs/mensaje-telegram.txt`; todavía no se ha enviado al grupo.
 
 ## Referencias
 
