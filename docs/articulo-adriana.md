@@ -3,11 +3,15 @@
 **Autora:** Adriana Rafaela Laos Gonzáles  
 **Proyecto desarrollado con:** Antony Piero Solorzano Zegarra
 
+*Artículo de Adriana Rafaela Laos Gonzáles, publicado desde la cuenta de Antony Piero Solorzano Zegarra, integrante del mismo equipo.*
+
 ## Una aplicación pequeña para mostrar el proceso completo
 
 Campus Tareas permite registrar pendientes por curso, editarlos, marcarlos como completados y eliminarlos. La aplicación utiliza JavaScript en el navegador, Cloud Firestore como base NoSQL y GitHub Pages para su publicación.
 
 El propósito del proyecto es conectar esas piezas con un proceso repetible: que un cambio en el código pueda comprobarse y publicarse desde el repositorio.
+
+![Campus Tareas: registro y lista de tareas académicas](https://dev-to-uploads.s3.us-east-2.amazonaws.com/uploads/articles/laflrw9zxspqgaik1g0o.jpg)
 
 ## Construcción y persistencia
 
@@ -20,6 +24,20 @@ Cada visitante recibe una identidad anónima. Las reglas permiten acceder única
 ## Qué automatiza el repositorio
 
 El workflow tiene tres trabajos: `check` comprueba la sintaxis y ejecuta las pruebas de validación; `package` empaqueta la carpeta pública; `deploy` publica el artefacto en GitHub Pages. Cada etapa depende de que la anterior termine correctamente, y la publicación se realiza desde `main`.
+
+La dependencia entre los trabajos define el orden de publicación:
+
+```yaml
+package:
+  needs: check
+  # Empaquetado de la carpeta public/
+
+deploy:
+  needs: package
+  # Publicación del artefacto en GitHub Pages
+```
+
+El archivo completo se encuentra en [`.github/workflows/deploy.yml`](https://github.com/AntonyS3010/campus-tareas-nosql/blob/main/.github/workflows/deploy.yml).
 
 Las solicitudes de cambios ejecutan las comprobaciones, pero no publican en producción. Esto permite revisar una modificación antes de integrarla.
 

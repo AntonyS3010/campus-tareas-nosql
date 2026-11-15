@@ -72,11 +72,12 @@ Las pruebas de interfaz y las comprobaciones de acceso ya ejecutadas se registra
 ## Publicaciones y entrega
 
 - [Artículo de Antony en DEV.to](https://dev.to/antonys3010/una-aplicacion-de-tareas-academicas-con-javascript-y-cloud-firestore-40nf)
+- [Artículo de Adriana en DEV.to](https://dev.to/antonys3010/de-un-commit-a-una-aplicacion-publicada-campus-tareas-con-firestore-g8f)
 - [Video público de 4 minutos](https://www.youtube.com/watch?v=YAXXFRYB4Rk)
 - [Aplicación publicada](https://antonys3010.github.io/campus-tareas-nosql/)
 - [Enlaces para la entrega de Antony](docs/enlaces-antony.txt)
 
-El artículo de Adriana está preparado en `docs/articulo-adriana.md` para su publicación desde su propia cuenta. El mensaje para Telegram se encuentra en `docs/mensaje-telegram.txt`; todavía no se ha enviado al grupo.
+El artículo de Adriana está publicado desde la cuenta de Antony y señala expresamente su autoría al inicio. El mensaje para Telegram se encuentra en `docs/mensaje-telegram.txt`; todavía no se ha enviado al grupo.
 
 ## Referencias
 

@@ -1,11 +1,15 @@
 CONSTRUCCIÓN Y DESPLIEGUE DE UNA APP CON BASE DE DATOS NoSQL
 
 Proyecto: Campus Tareas
-Presentado por: Antony Piero Solorzano Zegarra
-Integrante del equipo: Adriana Rafaela Laos Gonzáles
+Integrantes:
+Antony Piero Solorzano Zegarra
+Adriana Rafaela Laos Gonzáles
 
 Artículo de Antony (DEV.to):
 https://dev.to/antonys3010/una-aplicacion-de-tareas-academicas-con-javascript-y-cloud-firestore-40nf
+
+Artículo de Adriana (DEV.to, publicado desde la cuenta de Antony con su autoría indicada):
+https://dev.to/antonys3010/de-un-commit-a-una-aplicacion-publicada-campus-tareas-con-firestore-g8f
 
 Video público (4 minutos):
 https://www.youtube.com/watch?v=YAXXFRYB4Rk
