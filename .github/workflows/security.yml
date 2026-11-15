@@ -1,0 +1,39 @@
+name: Escaneo con Nuclei y Wapiti
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: [Comprobar y publicar Campus]
+    types: [completed]
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  scan:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Instalar Wapiti
+        run: python -m pip install -r security/requirements.txt
+      - name: Instalar Nuclei y comprobar SHA-256
+        run: |
+          python scripts/install-nuclei.py "$RUNNER_TEMP/scanners"
+          echo "$RUNNER_TEMP/scanners" >> "$GITHUB_PATH"
+      - name: Analizar la aplicación publicada
+        run: python scripts/security-scan.py --output security/reports/latest
+      - name: Publicar resumen de la ejecución
+        if: success()
+        run: cat security/reports/latest/summary.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Conservar reportes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuclei-wapiti-${{ github.run_id }}
+          path: security/reports/latest/
+          retention-days: 30

@@ -1,0 +1,17 @@
+
+     __      __               .__  __  .__________
+    /  \    /  \_____  ______ |__|/  |_|__\_____  \
+    \   \/\/   /\__  \ \____ \|  \   __\  | _(__  <
+     \        /  / __ \|  |_> >  ||  | |  |/       \
+      \__/\  /  (____  /   __/|__||__| |__/______  /
+           \/        \/|__|                      \/
+Wapiti 3.3.2 (wapiti-scanner.github.io)
+X-Frame-Options is not set on https://antonys3010.github.io/campus-tareas-nosql/
+X-Content-Type-Options is not set on https://antonys3010.github.io/campus-tareas-nosql/
+CSP is not set for URL: https://antonys3010.github.io/campus-tareas-nosql/
+[*] Saving scan state, please wait...
+This scan has been saved in the file /workspace/scratch/af9f0aae7b26/security-task/campus-tareas/security/reports/baseline/session/antonys3010.github.io_url_390e4f75.db
+[*] Wapiti found 1 URLs and forms during the scan
+
+[*] Generating report...
+A report has been generated in the file /workspace/scratch/af9f0aae7b26/security-task/campus-tareas/security/reports/baseline/wapiti.json
