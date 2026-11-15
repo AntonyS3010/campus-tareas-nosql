@@ -1,0 +1,12 @@
+{
+  "timestamp_utc": "2026-11-15T17:48:00.656010+00:00",
+  "target": "https://antonys3010.github.io/campus-tareas-nosql/",
+  "source_commit": "813dc71a77c7275e30693b78c464bdc4cccd3995",
+  "html_sha256": "82f767ca07512377b70ea49df615e13a2c3ba1d18383fc230571e679f618227e",
+  "nuclei": "3.11.1",
+  "wapiti": "3.3.2",
+  "nuclei_template_blob": "7c1c5b8191ddf3468348b8f8a046b4d61b75d319",
+  "scope": "Una URL pública; cabeceras HTTP, CSP y atributos de cookies. Sin sesión de Firebase.",
+  "nuclei_matches": 9,
+  "wapiti_findings": 3
+}

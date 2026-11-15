@@ -3,3 +3,8 @@ node_modules/
 firebase-debug.log*
 *service-account*.json
 .env*
+__pycache__/
+.venv/
+.tools/
+security/reports/latest/
+security/reports/*/session/
