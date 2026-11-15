@@ -9,6 +9,9 @@ https://dev.to/antonys3010/escanear-la-aplicacion-publicada-nuclei-y-wapiti-en-c
 Artículo de Adriana
 https://dev.to/antonys3010/que-significan-las-alertas-de-nuclei-y-wapiti-en-una-app-de-tareas-1p5m
 
+Video público (3 min 20 s)
+https://www.youtube.com/watch?v=Y0DHOWkfnhU
+
 Repositorio público
 https://github.com/AntonyS3010/campus-tareas-nosql
 
@@ -23,5 +26,3 @@ https://github.com/AntonyS3010/campus-tareas-nosql/actions/runs/43743571100
 
 Configuración y reportes
 https://github.com/AntonyS3010/campus-tareas-nosql/tree/main/security
-
-Pendiente: publicar el video de 3 min 20 s en una red social pública, añadir su URL a los artículos y a esta entrega, y enviar los enlaces al grupo de Telegram. El archivo MP4 está preparado; la carga desde el navegador falló. Este paquete todavía no cumple esos dos requisitos.

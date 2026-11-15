@@ -45,6 +45,10 @@ El workflow guarda los reportes originales de las dos herramientas, sus registro
 
 El alcance de esta prueba fue una URL, sin autenticación y con comprobaciones limitadas de configuración. No se ejecutó todo el flujo JavaScript ni se evaluaron los permisos de Firestore. Esas verificaciones requieren pruebas adicionales.
 
+## Video de la actividad
+
+[Ver la demostración en YouTube (3 min 20 s)](https://www.youtube.com/watch?v=Y0DHOWkfnhU). El recorrido muestra la preparación de las herramientas, el análisis y la lectura de los reportes.
+
 ## Enlaces de la actividad
 
 - [Aplicación publicada](https://antonys3010.github.io/campus-tareas-nosql/)

@@ -57,6 +57,10 @@ La [ejecución verificada](https://github.com/AntonyS3010/campus-tareas-nosql/ac
 
 Un estado verde indica que las herramientas se ejecutaron correctamente; las advertencias permanecen en los reportes. No certifica que la aplicación esté libre de vulnerabilidades.
 
+## Video de la actividad
+
+[Ver la demostración en YouTube (3 min 20 s)](https://www.youtube.com/watch?v=Y0DHOWkfnhU). Incluye la instalación, el alcance, la automatización y los resultados del análisis.
+
 ## Código y evidencias
 
 - [Repositorio público](https://github.com/AntonyS3010/campus-tareas-nosql)
