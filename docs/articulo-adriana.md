@@ -3,8 +3,6 @@
 **Autora:** Adriana Rafaela Laos Gonzáles  
 **Proyecto desarrollado con:** Antony Piero Solorzano Zegarra
 
-> Versión de trabajo. Completar los enlaces, las capturas y los resultados reales antes de publicar. Retirar este aviso al finalizar la revisión.
-
 ## Una aplicación pequeña para mostrar el proceso completo
 
 Campus Tareas permite registrar pendientes por curso, editarlos, marcarlos como completados y eliminarlos. La aplicación utiliza JavaScript en el navegador, Cloud Firestore como base NoSQL y GitHub Pages para su publicación.
@@ -21,7 +19,7 @@ Cada visitante recibe una identidad anónima. Las reglas permiten acceder única
 
 ## Qué automatiza el repositorio
 
-El workflow tiene dos trabajos. El primero comprueba la sintaxis del código y ejecuta pruebas sobre las entradas del formulario. El segundo depende del primero y publica en GitHub Pages cuando la rama es `main`.
+El workflow tiene tres trabajos: `check` comprueba la sintaxis y ejecuta las pruebas de validación; `package` empaqueta la carpeta pública; `deploy` publica el artefacto en GitHub Pages. Cada etapa depende de que la anterior termine correctamente, y la publicación se realiza desde `main`.
 
 Las solicitudes de cambios ejecutan las comprobaciones, pero no publican en producción. Esto permite revisar una modificación antes de integrarla.
 
@@ -31,7 +29,9 @@ La configuración pública de Firebase queda en un archivo de la aplicación. El
 
 Una prueba útil consiste en cambiar una frase visible de la interfaz, subir el cambio y revisar el workflow. Después se abre la URL pública para comprobar que aparece la nueva frase. La marca verde de Actions debe acompañarse de la revisión del sitio y de sus operaciones contra Firestore.
 
-Agregar aquí el enlace a la ejecución real, una captura de la aplicación y el resultado de crear y recuperar una tarea después de recargar. También registrar la comprobación de aislamiento entre dos sesiones.
+La [ejecución 43671790256](https://github.com/AntonyS3010/campus-tareas-nosql/actions/runs/43671790256) terminó con sus tres trabajos correctos. La URL publicada abrió la interfaz y conectó con Firestore. Se verificaron el registro, la edición, el cambio de estado, la recarga y la eliminación de una tarea.
+
+También se hicieron pruebas directas con dos identidades anónimas. Una identidad pudo crear y leer su documento; la otra recibió HTTP 403 al intentar leerlo, modificarlo o eliminarlo. Las reglas también rechazaron entradas con tipos incorrectos, campos adicionales y cambios en la fecha original. Las cuentas y los documentos de prueba se retiraron al terminar.
 
 ## Alcances y siguientes pasos
 
@@ -39,8 +39,8 @@ El proyecto cubre un CRUD individual y un despliegue automático. Un siguiente p
 
 ## Enlaces
 
-- Repositorio público: PENDIENTE
-- Aplicación: PENDIENTE
+- [Repositorio público](https://github.com/AntonyS3010/campus-tareas-nosql)
+- [Aplicación publicada](https://antonys3010.github.io/campus-tareas-nosql/)
 - Video público: PENDIENTE
 
 Referencias: [GitHub Pages y GitHub Actions](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages), [Firestore](https://firebase.google.com/docs/firestore/data-model) y [reglas de acceso](https://firebase.google.com/docs/firestore/security/rules-conditions).

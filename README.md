@@ -67,6 +67,8 @@ Antes de entregar, comprobar en la app publicada:
 - Hacer un cambio visible en el texto del sitio, subirlo a `main` y registrar el workflow exitoso y el cambio publicado.
 - Verificar reglas con el simulador de Firestore: usuario propietario autorizado; usuario diferente y visitante sin autenticar rechazados. Probar también tipos incorrectos y campos adicionales.
 
+Las pruebas de interfaz y las comprobaciones de acceso ya ejecutadas se registran en [docs/verificacion.md](docs/verificacion.md).
+
 ## Entrega académica
 
 Los textos de `docs/` son versiones de trabajo que deben completarse con los enlaces y las capturas reales. Publicar un artículo en cada cuenta personal. El video puede mostrar a ambos integrantes; confirmar con el docente si además exige uno por integrante. Publicarlo con visibilidad pública y duración inferior a cinco minutos.

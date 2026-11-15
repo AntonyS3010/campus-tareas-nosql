@@ -3,8 +3,6 @@
 **Autor:** Antony Piero Solorzano Zegarra  
 **Proyecto desarrollado con:** Adriana Rafaela Laos Gonzáles
 
-> Versión de trabajo. Antes de publicar, agregar los enlaces, las capturas y el resultado del despliegue verificado. Este aviso se retira al completar esos pasos.
-
 ## El problema y el alcance
 
 Entre clases, prácticas y exposiciones, las entregas pueden quedar repartidas en distintos lugares. Campus Tareas reúne los pendientes en una página: cada tarea tiene un título, un curso y un estado. El alcance es pequeño para poder explicar el recorrido completo de un dato, desde el formulario hasta su almacenamiento en la nube.
@@ -31,14 +29,26 @@ El repositorio incluye un workflow de GitHub Actions. En una solicitud de cambio
 
 La publicación utiliza permisos temporales de GitHub Actions y no requiere una clave privada de Firebase. Las reglas de Firestore se publican por separado durante la configuración inicial.
 
-## Evidencias de funcionamiento
+## Configuración del proyecto
 
-Antes de publicar este artículo, agregar una captura del documento creado en Firestore, una del workflow exitoso y una de la aplicación publicada. Registrar aquí el resultado real de crear, editar, recargar y eliminar una tarea. Las pruebas locales de validación no demuestran por sí solas la conexión con la nube.
+El proyecto de Firebase se llama `campus-tareas`. La base `(default)` usa Firestore Standard en `southamerica-west1`, la región de Santiago. Se habilitó el proveedor Anónimo en Authentication y se publicaron las reglas de `firestore.rules`.
+
+En el frontend, `firebase-config.json` contiene los identificadores públicos de la aplicación. El código carga ese archivo e inicializa el SDK. La configuración pública no sustituye los permisos: las reglas de Firestore son las que deciden si una operación se acepta.
+
+Para reproducir el proyecto, se registra una app web en Firebase, se habilitan los servicios anteriores y se reemplaza el archivo de configuración. En el repositorio público, Settings → Pages debe usar GitHub Actions como origen. El workflow publica la carpeta `public/`.
+
+## Comprobaciones de funcionamiento
+
+En la aplicación publicada se creó la tarea «Preparar exposición de NoSQL», del curso Base de Datos II. Se editó el título a «Preparar exposición y demo de NoSQL», se marcó como completada y se recargó la página. La tarea conservó el título y el estado. Después se eliminó y el contador volvió a cero.
+
+Además de las dos pruebas locales de validación, se comprobaron las reglas mediante solicitudes reales a Firebase. La lectura propia se aceptó; la lectura sin autenticación y la lectura con otra cuenta recibieron HTTP 403. También se rechazaron las modificaciones y eliminaciones desde otra cuenta, los campos adicionales, un estado con tipo incorrecto y el cambio de la fecha de creación. Los documentos y las cuentas creados para esas pruebas se limpiaron al terminar.
+
+La [ejecución de despliegue](https://github.com/AntonyS3010/campus-tareas-nosql/actions/runs/43671790256) terminó con `check`, `package` y `deploy` correctos. Estas comprobaciones cubren el flujo básico y las reglas indicadas; no son una auditoría completa de seguridad.
 
 ## Código y demostración
 
-- Repositorio público: PENDIENTE
-- Aplicación: PENDIENTE
+- [Repositorio público](https://github.com/AntonyS3010/campus-tareas-nosql)
+- [Aplicación publicada](https://antonys3010.github.io/campus-tareas-nosql/)
 - Video público: PENDIENTE
 
 Referencias: [modelo de datos de Firestore](https://firebase.google.com/docs/firestore/data-model), [reglas de seguridad](https://firebase.google.com/docs/firestore/security/rules-conditions) e [integración con GitHub](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
